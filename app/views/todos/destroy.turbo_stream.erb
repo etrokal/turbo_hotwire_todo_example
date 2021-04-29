@@ -1,0 +1,7 @@
+<%= turbo_stream.update "notice" do %>
+  <% if notice.present? %>
+    <div class="notification is-info">
+      <%= notice %>
+    </div>
+  <% end %>
+<% end %>

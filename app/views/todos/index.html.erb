@@ -1,0 +1,40 @@
+
+
+<%= turbo_stream_from :todos %>
+
+<div class="columns is-centered">
+  <div
+    class="column is-two-thirds-tablet is-half-desktop is-one-third-widescreen"
+  >
+    
+    <div id="notice" >
+      <% if notice.present? %>
+        <div class="notification is-info">
+          <%= notice %>
+        </div>
+      <% end %>
+    </div>
+    
+
+    <div class="panel mt-2">
+      <h1 class="panel-heading">Todos</h1>
+      <div id="todos">
+        <%= render partial: :todo, collection: @todos %>    
+      </div>
+
+      <%= turbo_frame_tag :todo, src: new_todo_path do %>
+        <div
+          class="panel-block is-flex is-flex-direction-row is-justify-content-center"
+        >
+          <div class="is-flex">
+            <p class="is-size-3 has-text-centered">
+              <i class="fas fa-circle-notch fa-spin"></i>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<br />

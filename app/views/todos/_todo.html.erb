@@ -1,0 +1,18 @@
+<div
+  class="panel-block is-flex is-flex-direction-row is-justify-content-space-between"
+  id="<%= dom_id todo %>"
+>
+  <%= form_with model: todo, url: toggle_todo_path(todo), data: {controller:
+  :'complete-task', 'complete-task-target': :form}, method: :post do |form| %>
+    <label class="checkbox">
+      <%= form.check_box :completed, data: {action: :'complete-task#toggle'} %> 
+      <%= todo.content %>
+    </label>
+  <% end %>
+  <div class="is-flex">
+    <%= button_to todo, method: :delete, class: "button is-white
+    is-small" do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </div>
+</div>

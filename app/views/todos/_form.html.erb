@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "todo" do %>
+  <%= form_with model: todo do |form| %>
+    <div
+        class="panel-block is-flex is-flex-direction-row is-justify-content-center"
+      >
+      <%= form.text_field :content, class: "input #{'is-danger' if todo.errors[:content].any?}", placeholder: "Type your next todo" %>
+      <% if todo.errors[:content].any? %> 
+        <p> <%= todo.errors[:content].first %> </p>
+      <% end %>
+    </div>
+    <div class="panel-block">
+      <button class="button is-primary is-fullwidth">Adicionar</button>
+    </div>
+  <% end %>
+<% end %>

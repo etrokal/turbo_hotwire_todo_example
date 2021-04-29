@@ -1,0 +1,14 @@
+<%= turbo_stream.replace @todo do %>
+  <div
+    class="panel-block is-flex is-flex-direction-row is-justify-content-space-between"
+    id="<%= dom_id @todo %>"
+  >
+    <%= form_with model: @todo do |form| %>
+      <%= form.text_field :content, class: "input #{'is-danger' if @todo.errors[:content].any?}", placeholder: "Type your next todo" %>
+      <% if @todo.errors[:content].any? %> 
+        <p> <%= @todo.errors[:content].first %> </p>
+      <% end %>
+      <button class="button is-primary is-fullwidth">Adicionar</button>
+    <% end %>
+  </div>
+<% end %>
